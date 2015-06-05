@@ -8,6 +8,7 @@ public class Mario {
 
         int height = -1;
 
+
         do {
 
             System.out.println("Please enter an integer between 0 and 23...");
