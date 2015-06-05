@@ -10,7 +10,7 @@ public class Mario {
 
         do {
 
-            System.out.println("Please enter an integer between 0 and 23...");
+            System.out.println("Please enter a K-razzy integer between 0 and 23...");
 
             while (!input.hasNextInt()) {
                 System.out.println("Please enter an integer between 0 and 23...");
