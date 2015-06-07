@@ -1,15 +1,35 @@
 package com.EvanBarmes.JavaTuts;
 
-import com.EvanBarmes.JavaTuts.Printer.ConsolePrinter;
-import com.EvanBarmes.JavaTuts.Printer.FilePrinter;
 import com.EvanBarmes.JavaTuts.Printer.PrintFactory;
 import com.EvanBarmes.JavaTuts.Printer.Printer;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Scanner;
 
 public class Mario {
 
+    PrintFactory printFactory;
+
+    public Mario(PrintFactory printFactory) {
+
+        this.printFactory = printFactory;
+
+    }
+
     public static void main (String[] args) {
+
+        System.out.println("Thanks for playing \"Mario Pyramid Builder\"!");
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+
+        Mario mario = (Mario) context.getBean("basicMarioGame");
+
+        mario.PlayGame();
+
+    }
+
+    public void PlayGame() {
 
         Scanner input = new Scanner(System.in);
         Printer output;
@@ -42,12 +62,13 @@ public class Mario {
 
         }
 
-        if (c == 'c') output = PrintFactory.getInstance().consolePrinter();
-        else output = PrintFactory.getInstance().filePrinter();
+        if (c == 'c') output = printFactory.consolePrinter();
+        else output = printFactory.filePrinter();
 
         pyramid.BuildPyramid(height);
 
         output.Print(pyramid);
+
 
     }
 
