@@ -1,0 +1,1 @@
+2015-06-20 21:16:38,980 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager ~ Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@2ca923bb] of Hibernate SessionFactory for HibernateTransactionManager
